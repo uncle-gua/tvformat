@@ -88,9 +88,9 @@ func (t *BackTest) Output(filename string) error {
 		f.SetCellValue("Sheet1", fmt.Sprintf("A%d", i+2), t.Symbol)
 		f.SetCellValue("Sheet1", fmt.Sprintf("B%d", i+2), trade.PositionSide)
 		f.SetCellValue("Sheet1", fmt.Sprintf("C%d", i+2), time.UnixMilli(trade.EntryTime).Format("2006-01-02 15:04:05"))
-		f.SetCellValue("Sheet1", fmt.Sprintf("D%d", i+2), fmt.Sprintf("%.2f", trade.EntryPrice))
+		f.SetCellValue("Sheet1", fmt.Sprintf("D%d", i+2), fmt.Sprintf("%.2f", 0.0))
 		f.SetCellValue("Sheet1", fmt.Sprintf("E%d", i+2), time.UnixMilli(trade.CloseTime).Format("2006-01-02 15:04:05"))
-		f.SetCellValue("Sheet1", fmt.Sprintf("F%d", i+2), fmt.Sprintf("%.2f", trade.ClosePrice))
+		f.SetCellValue("Sheet1", fmt.Sprintf("F%d", i+2), fmt.Sprintf("%.2f", 0.0))
 	}
 	if err := f.SaveAs(filename); err != nil {
 		return err
